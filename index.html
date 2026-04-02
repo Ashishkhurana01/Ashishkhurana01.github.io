@@ -5,88 +5,146 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ashish Khurana – Data Science & AI Leader</title>
 <style>
-  html { scroll-behavior: smooth; scroll-padding-top: 70px; }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; scroll-padding-top: 70px; }
   :root {
-    --navy: #1a2744;
+    --navy: #0f1f3d;
+    --navy2: #1a2f52;
     --accent: #2a6fcf;
-    --accent-light: #e8f0fb;
+    --accent2: #1e90ff;
+    --gold: #c9a84c;
     --text: #1e1e1e;
     --muted: #5a5a5a;
     --border: #e0e0e0;
-    --bg: #f7f8fa;
+    --bg: #f4f6fa;
     --white: #ffffff;
+    --card-shadow: 0 2px 16px rgba(0,0,0,0.07);
   }
   body { font-family: 'Segoe UI', system-ui, sans-serif; color: var(--text); background: var(--bg); line-height: 1.7; font-size: 16px; }
   a { color: var(--accent); text-decoration: none; }
   a:hover { text-decoration: underline; }
 
-  header { background: var(--navy); color: white; padding: 0; position: sticky; top: 0; z-index: 100; }
-  nav { max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; }
-  nav .logo { font-size: 18px; font-weight: 600; color: white; letter-spacing: 0.3px; }
+  /* NAV */
+  header { background: var(--navy); color: white; padding: 0; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.2); }
+  nav { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; }
+  nav .logo { font-size: 18px; font-weight: 700; color: white; letter-spacing: 0.5px; }
+  nav .logo span { color: var(--gold); }
   nav ul { list-style: none; display: flex; gap: 2rem; }
-  nav ul li a { color: rgba(255,255,255,0.9); font-size: 15px; font-weight: 600; transition: color 0.2s; letter-spacing: 0.3px; }
-  nav ul li a:hover { color: white; text-decoration: none; }
+  nav ul li a { color: rgba(255,255,255,0.85); font-size: 14px; font-weight: 600; letter-spacing: 0.3px; transition: color 0.2s; }
+  nav ul li a:hover { color: var(--gold); text-decoration: none; }
 
-  .hero { background: var(--navy); color: white; padding: 5rem 2rem 4rem; }
-  .hero-inner { max-width: 1000px; margin: 0 auto; display: flex; align-items: center; gap: 3rem; }
-  .avatar { width: 110px; height: 110px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 36px; font-weight: 600; color: white; flex-shrink: 0; border: 3px solid rgba(255,255,255,0.2); }
-  .hero-text h1 { font-size: 32px; font-weight: 700; margin-bottom: 0.4rem; }
-  .hero-text .tagline { font-size: 17px; color: rgba(255,255,255,0.75); margin-bottom: 1rem; }
-  .hero-text p { font-size: 15px; color: rgba(255,255,255,0.65); max-width: 580px; line-height: 1.7; }
-  .hero-links { display: flex; gap: 1rem; margin-top: 1.5rem; }
-  .btn { display: inline-block; padding: 0.5rem 1.25rem; border-radius: 6px; font-size: 14px; font-weight: 500; transition: all 0.2s; }
-  .btn-primary { background: var(--accent); color: white; }
-  .btn-primary:hover { background: #1e5cb3; text-decoration: none; color: white; }
-  .btn-outline { border: 1px solid rgba(255,255,255,0.4); color: white; }
-  .btn-outline:hover { background: rgba(255,255,255,0.1); text-decoration: none; }
+  /* HERO */
+  .hero { background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 60%, #1a3a6b 100%); color: white; padding: 6rem 2rem 5rem; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: -80px; right: -80px; width: 400px; height: 400px; border-radius: 50%; background: rgba(42,111,207,0.12); }
+  .hero::after { content: ''; position: absolute; bottom: -60px; left: -60px; width: 300px; height: 300px; border-radius: 50%; background: rgba(201,168,76,0.08); }
+  .hero-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; gap: 3.5rem; position: relative; z-index: 1; }
+  .avatar-wrap { flex-shrink: 0; }
+  .avatar { width: 130px; height: 130px; border-radius: 50%; border: 3px solid var(--gold); overflow: hidden; box-shadow: 0 0 0 6px rgba(201,168,76,0.15); }
+  .avatar img { width: 130px; height: 130px; border-radius: 50%; object-fit: cover; object-position: center top; }
+  .hero-text h1 { font-size: 36px; font-weight: 700; margin-bottom: 0.3rem; letter-spacing: 0.3px; }
+  .hero-text .tagline { font-size: 17px; color: var(--gold); font-weight: 500; margin-bottom: 1rem; letter-spacing: 0.5px; }
+  .hero-text p { font-size: 15px; color: rgba(255,255,255,0.7); max-width: 600px; line-height: 1.8; }
+  .hero-links { display: flex; gap: 1rem; margin-top: 1.75rem; flex-wrap: wrap; }
+  .btn { display: inline-block; padding: 0.55rem 1.4rem; border-radius: 6px; font-size: 14px; font-weight: 600; transition: all 0.2s; letter-spacing: 0.3px; }
+  .btn-gold { background: var(--gold); color: var(--navy); }
+  .btn-gold:hover { background: #b8923e; text-decoration: none; color: var(--navy); }
+  .btn-outline { border: 1.5px solid rgba(255,255,255,0.4); color: white; }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); text-decoration: none; }
 
-  main { max-width: 1000px; margin: 0 auto; padding: 3rem 2rem; }
-  section { margin-bottom: 3.5rem; }
-  h2 { font-size: 22px; font-weight: 700; color: var(--navy); margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--accent); display: inline-block; }
+  /* STATS BANNER */
+  .stats-banner { background: var(--white); border-bottom: 1px solid var(--border); }
+  .stats-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); }
+  .stat { padding: 1.75rem 1.5rem; text-align: center; border-right: 1px solid var(--border); transition: background 0.2s; }
+  .stat:last-child { border-right: none; }
+  .stat:hover { background: var(--bg); }
+  .stat .number { font-size: 32px; font-weight: 700; color: var(--navy); line-height: 1; margin-bottom: 0.4rem; }
+  .stat .number span { color: var(--accent); }
+  .stat .label { font-size: 13px; color: var(--muted); font-weight: 500; line-height: 1.4; }
 
-  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
-  .skill-card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; }
-  .skill-card h3 { font-size: 14px; font-weight: 600; color: var(--accent); margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; }
+  /* MAIN */
+  main { max-width: 1100px; margin: 0 auto; padding: 3.5rem 2rem; }
+  section { margin-bottom: 4rem; opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  section.visible { opacity: 1; transform: translateY(0); }
+  .section-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; }
+  .section-header h2 { font-size: 24px; font-weight: 700; color: var(--navy); white-space: nowrap; }
+  .section-header .line { flex: 1; height: 2px; background: linear-gradient(to right, var(--accent), transparent); }
+
+  /* ABOUT */
+  .about-text { font-size: 16px; color: var(--muted); max-width: 800px; line-height: 1.9; }
+  .about-text + .about-text { margin-top: 1rem; }
+
+  /* SKILLS */
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; }
+  .skill-card { background: var(--white); border: 1px solid var(--border); border-top: 3px solid var(--accent); border-radius: 10px; padding: 1.5rem; box-shadow: var(--card-shadow); transition: transform 0.2s, box-shadow 0.2s; }
+  .skill-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+  .skill-card h3 { font-size: 13px; font-weight: 700; color: var(--accent); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.8px; }
   .skill-card ul { list-style: none; }
-  .skill-card ul li { font-size: 14px; color: var(--muted); padding: 2px 0; }
-  .skill-card ul li::before { content: "·  "; color: var(--accent); }
+  .skill-card ul li { font-size: 14px; color: var(--muted); padding: 3px 0; display: flex; align-items: center; gap: 6px; }
+  .skill-card ul li::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
 
-  .timeline { position: relative; padding-left: 1.5rem; border-left: 2px solid var(--border); }
-  .timeline-item { margin-bottom: 2.5rem; position: relative; }
-  .timeline-item::before { content: ""; width: 10px; height: 10px; background: var(--accent); border-radius: 50%; position: absolute; left: -1.8rem; top: 6px; }
-  .timeline-item .company { font-size: 13px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.2rem; }
-  .timeline-item .role { font-size: 18px; font-weight: 600; color: var(--navy); margin-bottom: 0.2rem; }
-  .timeline-item .period { font-size: 13px; color: var(--muted); margin-bottom: 0.75rem; }
-  .timeline-item p { font-size: 15px; color: var(--muted); margin-bottom: 0.5rem; }
-  .timeline-item ul { padding-left: 1.2rem; }
-  .timeline-item ul li { font-size: 15px; color: var(--muted); margin-bottom: 0.3rem; }
-  .highlight { color: var(--navy); font-weight: 600; }
+  /* TIMELINE */
+  .timeline { position: relative; padding-left: 2rem; }
+  .timeline::before { content: ''; position: absolute; left: 0; top: 6px; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--accent), var(--border)); }
+  .timeline-item { margin-bottom: 3rem; position: relative; }
+  .timeline-item::before { content: ""; width: 12px; height: 12px; background: var(--accent); border: 2px solid var(--white); border-radius: 50%; position: absolute; left: -2.38rem; top: 6px; box-shadow: 0 0 0 3px rgba(42,111,207,0.2); }
+  .timeline-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 1.75rem; box-shadow: var(--card-shadow); transition: transform 0.2s, box-shadow 0.2s; }
+  .timeline-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+  .timeline-card .company { font-size: 12px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.3rem; }
+  .timeline-card .role { font-size: 20px; font-weight: 700; color: var(--navy); margin-bottom: 0.2rem; }
+  .timeline-card .period { font-size: 13px; color: var(--muted); margin-bottom: 1rem; display: flex; align-items: center; gap: 6px; }
+  .timeline-card .period::before { content: ""; width: 14px; height: 1px; background: var(--gold); }
+  .timeline-card p { font-size: 15px; color: var(--muted); margin-bottom: 1rem; line-height: 1.8; }
+  .timeline-card ul { padding-left: 0; list-style: none; }
+  .timeline-card ul li { font-size: 14px; color: var(--muted); margin-bottom: 0.5rem; padding-left: 1.2rem; position: relative; line-height: 1.6; }
+  .timeline-card ul li::before { content: "→"; position: absolute; left: 0; color: var(--accent); font-size: 12px; top: 2px; }
+  .highlight { color: var(--navy); font-weight: 700; }
 
-  .edu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
-  .edu-card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; }
-  .edu-card .degree { font-size: 16px; font-weight: 600; color: var(--navy); margin-bottom: 0.25rem; }
-  .edu-card .school { font-size: 14px; color: var(--accent); margin-bottom: 0.25rem; }
-  .edu-card .year { font-size: 13px; color: var(--muted); }
+  /* EDUCATION */
+  .edu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
+  .edu-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; box-shadow: var(--card-shadow); display: flex; gap: 1rem; align-items: flex-start; transition: transform 0.2s; }
+  .edu-card:hover { transform: translateY(-3px); }
+  .edu-icon { width: 42px; height: 42px; border-radius: 10px; background: linear-gradient(135deg, var(--navy), var(--accent)); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+  .edu-card .degree { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 0.2rem; }
+  .edu-card .school { font-size: 13px; color: var(--accent); margin-bottom: 0.2rem; font-weight: 500; }
+  .edu-card .year { font-size: 12px; color: var(--muted); }
+  .cert-list { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.5rem; }
+  .cert-tag { background: var(--white); border: 1px solid var(--border); color: var(--navy); font-size: 13px; padding: 0.35rem 0.9rem; border-radius: 20px; font-weight: 500; box-shadow: var(--card-shadow); transition: all 0.2s; }
+  .cert-tag:hover { border-color: var(--accent); color: var(--accent); }
 
-  .interests-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
-  .interest-card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; }
-  .interest-card .icon { font-size: 24px; margin-bottom: 0.5rem; }
-  .interest-card h3 { font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 0.4rem; }
-  .interest-card p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+  /* ACCOMPLISHMENTS */
+  .acc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; }
+  .acc-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; box-shadow: var(--card-shadow); transition: transform 0.2s, box-shadow 0.2s; }
+  .acc-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+  .acc-card h3 { font-size: 13px; font-weight: 700; color: var(--navy); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 1rem; padding-bottom: 0.6rem; border-bottom: 2px solid var(--gold); }
+  .acc-card ul { list-style: none; }
+  .acc-card ul li { font-size: 14px; color: var(--muted); padding: 4px 0; display: flex; align-items: flex-start; gap: 8px; line-height: 1.5; }
+  .acc-card ul li::before { content: "✓"; color: var(--accent); font-size: 12px; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
 
-  .cert-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-  .cert-tag { background: var(--accent-light); color: var(--accent); font-size: 13px; padding: 0.3rem 0.8rem; border-radius: 20px; font-weight: 500; }
+  /* INTERESTS */
+  .interests-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.25rem; }
+  .interest-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; box-shadow: var(--card-shadow); text-align: center; transition: transform 0.2s, box-shadow 0.2s; }
+  .interest-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+  .interest-card .icon { font-size: 28px; margin-bottom: 0.75rem; display: block; }
+  .interest-card h3 { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; }
+  .interest-card p { font-size: 13px; color: var(--muted); line-height: 1.6; }
 
-  footer { background: var(--navy); color: rgba(255,255,255,0.6); text-align: center; padding: 2rem; font-size: 13px; }
-  footer a { color: rgba(255,255,255,0.8); }
+  /* FOOTER */
+  footer { background: var(--navy); color: rgba(255,255,255,0.5); text-align: center; padding: 2.5rem; font-size: 13px; }
+  footer a { color: var(--gold); }
+  footer .footer-links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 1rem; }
+  footer .footer-links a { color: rgba(255,255,255,0.7); font-size: 14px; font-weight: 500; }
+  footer .footer-links a:hover { color: var(--gold); text-decoration: none; }
+
+  /* SCROLL ANIMATION */
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  .stat .number { transition: all 0.5s; }
 </style>
 </head>
 <body>
 
 <header>
   <nav>
-    <span class="logo">Ashish Khurana</span>
+    <span class="logo">Ashish <span>Khurana</span></span>
     <ul>
       <li><a href="#about">About</a></li>
       <li><a href="#experience">Experience</a></li>
@@ -100,15 +158,38 @@
 
 <div class="hero">
   <div class="hero-inner">
-    <div class="avatar"><img src="AshishKhurana.JPG" alt="Ashish Khurana" style="width:110px;height:110px;border-radius:50%;object-fit:cover;object-position:center top;"></div>
+    <div class="avatar-wrap">
+      <div class="avatar"><img src="AshishKhurana.JPG" alt="Ashish Khurana"></div>
+    </div>
     <div class="hero-text">
       <h1>Ashish Khurana</h1>
       <p class="tagline">Data Science & AI Leader · Toronto, Canada</p>
       <p>18+ years turning complex data into decisions that matter — across financial services, insurance, and B2B SaaS technology. Currently leading AI/ML strategy and delivery at Thomson Reuters.</p>
       <div class="hero-links">
-        <a href="https://www.linkedin.com/in/ashishkhurana01/" class="btn btn-primary" target="_blank">LinkedIn</a>
+        <a href="https://www.linkedin.com/in/ashishkhurana01/" class="btn btn-gold" target="_blank">LinkedIn</a>
         <a href="mailto:khurana.ashish@gmail.com" class="btn btn-outline">Get in Touch</a>
       </div>
+    </div>
+  </div>
+</div>
+
+<div class="stats-banner">
+  <div class="stats-inner">
+    <div class="stat">
+      <div class="number" data-target="18"><span>18</span>+</div>
+      <div class="label">Years of Experience</div>
+    </div>
+    <div class="stat">
+      <div class="number" data-target="54"><span>54</span></div>
+      <div class="label">Product Decisions in a Year</div>
+    </div>
+    <div class="stat">
+      <div class="number" data-target="10"><span>10</span>+</div>
+      <div class="label">AI/ML Models Delivered</div>
+    </div>
+    <div class="stat">
+      <div class="number">$<span>6</span>M+</div>
+      <div class="label">Revenue Impact (5 Years)</div>
     </div>
   </div>
 </div>
@@ -116,87 +197,105 @@
 <main>
 
   <section id="about">
-    <h2>About Me</h2>
-    <p style="font-size:16px; color:var(--muted); max-width:720px;">I specialise in building analytics and AI/ML programs that connect data to real business outcomes. My work spans the full spectrum — from designing predictive models and generative AI pipelines to shaping product roadmaps and influencing C-suite strategy. I believe the best data leaders are equally comfortable in a model architecture discussion and a board-level narrative.</p>
-    <p style="font-size:16px; color:var(--muted); max-width:720px; margin-top:1rem;">Academic background spanning Computer Science (NIT Surat), Business Management (NMIMS Mumbai), and Applied Data Science (MIT). Based in Toronto.</p>
+    <div class="section-header"><h2>About Me</h2><div class="line"></div></div>
+    <p class="about-text">I specialise in building analytics and AI/ML programs that connect data to real business outcomes. My work spans the full spectrum — from designing predictive models and generative AI pipelines to shaping product roadmaps and influencing C-suite strategy. I believe the best data leaders are equally comfortable in a model architecture discussion and a board-level narrative.</p>
+    <p class="about-text">Academic background spanning Computer Science (NIT Surat), Business Management (NMIMS Mumbai), and Applied Data Science (MIT). Based in Toronto.</p>
   </section>
 
   <section id="experience">
-    <h2>Experience</h2>
+    <div class="section-header"><h2>Experience</h2><div class="line"></div></div>
     <div class="timeline">
 
       <div class="timeline-item">
-        <div class="company">Thomson Reuters</div>
-        <div class="role">AI/ML Program Lead</div>
-        <div class="period">April 2022 – Present · Toronto, Canada</div>
-        <p>Appointed to build and lead the AI/ML program in product analytics for Thomson Reuters. Operated as the strategic owner of the AI agenda, setting vision, governing execution, and aligning cross-functional teams across product, engineering, and data science toward shared outcomes.</p>
-        <ul>
-          <li>Defined and institutionalised the enterprise AI/ML roadmap from the ground up — establishing use case prioritisation, squad structure, governance cadence, and a self-sustaining upskilling program that achieved <span class="highlight">50% AI/ML adoption</span> across the Product Analytics team</li>
-          <li>Drove <span class="highlight">54 product decisions</span> in a single year against a target of 40, spanning Gen AI, predictive ML, and experimentation frameworks across 5+ products</li>
-          <li>Led the Time to Value digital onboarding initiative, reducing customer onboarding time <span class="highlight">from 55 to 14 days</span> — a model subsequently replicated across the broader LegalTech portfolio</li>
-          <li>Partnered on strategic initiatives with <span class="highlight">$6M+ projected revenue impact over 5 years</span></li>
-          <li>Won two company-wide AI Hackathons (2023), demonstrating hands-on technical leadership alongside strategic program ownership</li>
-        </ul>
+        <div class="timeline-card">
+          <div class="company">Thomson Reuters</div>
+          <div class="role">AI/ML Program Lead</div>
+          <div class="period">April 2022 – Present · Toronto, Canada</div>
+          <p>Appointed to build and lead the AI/ML program in product analytics for Thomson Reuters. Operated as the strategic owner of the AI agenda, setting vision, governing execution, and aligning cross-functional teams across product, engineering, and data science toward shared outcomes.</p>
+          <ul>
+            <li>Defined and institutionalised the enterprise AI/ML roadmap — establishing use case prioritisation, squad structure, governance cadence, and a self-sustaining upskilling program achieving <span class="highlight">50% AI/ML adoption</span> across the Product Analytics team</li>
+            <li>Drove <span class="highlight">54 product decisions</span> in a single year against a target of 40, spanning Gen AI, predictive ML, and experimentation frameworks across 5+ products</li>
+            <li>Led the Time to Value digital onboarding initiative, reducing customer onboarding time <span class="highlight">from 55 to 14 days</span> — replicated across the broader LegalTech portfolio</li>
+            <li>Partnered on strategic initiatives with <span class="highlight">$6M+ projected revenue impact over 5 years</span></li>
+            <li>Won two company-wide AI Hackathons (2023), demonstrating hands-on technical leadership alongside strategic program ownership</li>
+          </ul>
+        </div>
       </div>
 
       <div class="timeline-item">
-        <div class="company">HSBC Bank</div>
-        <div class="role">Data Science & Analytics – Lead Manager</div>
-        <div class="period">July 2018 – April 2022 · Toronto / Bangalore</div>
-        <p>Led the analytics strategy and delivery for HSBC Canada's Wealth & Personal Banking and Small Business Banking groups, with accountability spanning North America and European markets including USA, Canada, Mexico, France, and Malta. Operated as the analytics program lead across concurrent initiatives — independently managing senior stakeholder cadences at global level while driving measurable business outcomes across acquisition, retention, and lending.</p>
-        <ul>
-          <li>Designed and implemented a pre-approved lending framework for the US and Canada markets that was <span class="highlight">adopted globally</span> across major HSBC markets — one of the most significant analytics-led business impacts of the program</li>
-          <li>Built a look-alike model using advanced unsupervised classification techniques that surfaced <span class="highlight">~46K potential affluent customers</span>, directly enabling targeted acquisition campaigns</li>
-          <li>Developed a Random Forest attrition prediction framework paired with a proactive engagement strategy, reducing revenue leakage across the SME banking portfolio</li>
-          <li>Recognised as <span class="highlight">Emerging Leader (2019)</span> and received the <span class="highlight">Stellar Performance Award (2020)</span> for driving new business value</li>
-        </ul>
+        <div class="timeline-card">
+          <div class="company">HSBC Bank</div>
+          <div class="role">Data Science & Analytics – Lead Manager</div>
+          <div class="period">July 2018 – April 2022 · Toronto / Bangalore</div>
+          <p>Led the analytics strategy and delivery for HSBC Canada's Wealth & Personal Banking and Small Business Banking groups, with accountability spanning North America and European markets including USA, Canada, Mexico, France, and Malta.</p>
+          <ul>
+            <li>Designed and implemented a pre-approved lending framework for the US and Canada markets that was <span class="highlight">adopted globally</span> across major HSBC markets</li>
+            <li>Built a look-alike model surfacing <span class="highlight">~46K potential affluent customers</span>, directly enabling targeted acquisition campaigns</li>
+            <li>Developed a Random Forest attrition prediction framework paired with a proactive engagement strategy, reducing revenue leakage across the SME banking portfolio</li>
+            <li>Recognised as <span class="highlight">Emerging Leader (2019)</span> and received the <span class="highlight">Stellar Performance Award (2020)</span></li>
+          </ul>
+        </div>
       </div>
 
       <div class="timeline-item">
-        <div class="company">Scienaptic AI</div>
-        <div class="role">Engagement Leader</div>
-        <div class="period">September 2017 – June 2018 · Bangalore, India</div>
-        <p>Led end-to-end analytics delivery for a US insurance major, managing a team of 8 data scientists. ML-based retention strategy prevented <span class="highlight">$20M USD in revenue leakage</span>.</p>
+        <div class="timeline-card">
+          <div class="company">Scienaptic AI</div>
+          <div class="role">Engagement Leader</div>
+          <div class="period">September 2017 – June 2018 · Bangalore, India</div>
+          <p>Led end-to-end analytics delivery for a US insurance major, managing a team of 8 data scientists. ML-based retention strategy prevented <span class="highlight">$20M USD in revenue leakage</span>.</p>
+        </div>
       </div>
 
       <div class="timeline-item">
-        <div class="company">Max Life Insurance</div>
-        <div class="role">Chief Manager / Senior Manager, Analytics CoE</div>
-        <div class="period">January 2015 – September 2017 · Gurgaon, India</div>
-        <p>Built an Analytics Centre of Excellence (7 data scientists) covering customer analytics, digital marketing, and risk management. Delivered <span class="highlight">87% YoY e-commerce growth</span>. Presented research at IIM Bangalore.</p>
+        <div class="timeline-card">
+          <div class="company">Max Life Insurance</div>
+          <div class="role">Chief Manager / Senior Manager, Analytics CoE</div>
+          <div class="period">January 2015 – September 2017 · Gurgaon, India</div>
+          <p>Built an Analytics Centre of Excellence (7 data scientists) covering customer analytics, digital marketing, and risk management. Delivered <span class="highlight">87% YoY e-commerce growth</span>. Presented research at IIM Bangalore.</p>
+        </div>
       </div>
 
       <div class="timeline-item">
-        <div class="company">ICICI Bank · Deutsche Bank · Infosys</div>
-        <div class="role">Earlier Career</div>
-        <div class="period">2006 – 2015 · India & Singapore</div>
-        <p>CRM analytics at ICICI Bank, FX/Global Markets analytics for Asia-Pacific at Deutsche Bank, and software engineering for mortgage lending systems at Infosys.</p>
+        <div class="timeline-card">
+          <div class="company">ICICI Bank · Deutsche Bank · Infosys</div>
+          <div class="role">Earlier Career</div>
+          <div class="period">2006 – 2015 · India & Singapore</div>
+          <p>CRM analytics at ICICI Bank, FX/Global Markets analytics for Asia-Pacific at Deutsche Bank, and software engineering for mortgage lending systems at Infosys.</p>
+        </div>
       </div>
 
     </div>
   </section>
 
   <section id="education">
-    <h2>Education</h2>
+    <div class="section-header"><h2>Education</h2><div class="line"></div></div>
     <div class="edu-grid">
       <div class="edu-card">
-        <div class="degree">Applied Data Science: AI for Effective Decision-Making</div>
-        <div class="school">MIT Professional Education</div>
-        <div class="year">2023 · Exceptional Score</div>
+        <div class="edu-icon">🎓</div>
+        <div>
+          <div class="degree">Applied Data Science: AI for Effective Decision-Making</div>
+          <div class="school">MIT Professional Education</div>
+          <div class="year">2023 · Exceptional Score</div>
+        </div>
       </div>
       <div class="edu-card">
-        <div class="degree">Master of Business Administration</div>
-        <div class="school">NMIMS Mumbai · Top 10 B-School in India</div>
-        <div class="year">2009 – 2011</div>
+        <div class="edu-icon">📚</div>
+        <div>
+          <div class="degree">Master of Business Administration</div>
+          <div class="school">NMIMS Mumbai · Top 10 B-School in India</div>
+          <div class="year">2009 – 2011</div>
+        </div>
       </div>
       <div class="edu-card">
-        <div class="degree">Bachelor of Engineering, Computer Science</div>
-        <div class="school">NIT Surat · Institute of National Importance</div>
-        <div class="year">2002 – 2006</div>
+        <div class="edu-icon">💻</div>
+        <div>
+          <div class="degree">Bachelor of Engineering, Computer Science</div>
+          <div class="school">NIT Surat · Institute of National Importance</div>
+          <div class="year">2002 – 2006</div>
+        </div>
       </div>
     </div>
-
-    <h3 style="font-size:16px; font-weight:600; color:var(--navy); margin: 2rem 0 1rem;">Certifications</h3>
+    <h3 style="font-size:16px;font-weight:700;color:var(--navy);margin:2rem 0 1rem;">Certifications</h3>
     <div class="cert-list">
       <span class="cert-tag">Hands-On Large Language Models</span>
       <span class="cert-tag">Machine Learning – Coursera</span>
@@ -209,7 +308,7 @@
   </section>
 
   <section id="skills">
-    <h2>Skills</h2>
+    <div class="section-header"><h2>Skills</h2><div class="line"></div></div>
     <div class="skills-grid">
       <div class="skill-card">
         <h3>AI & Data Science</h3>
@@ -259,9 +358,9 @@
   </section>
 
   <section id="accomplishments">
-    <h2>Accomplishments</h2>
-    <div class="skills-grid">
-      <div class="skill-card">
+    <div class="section-header"><h2>Accomplishments</h2><div class="line"></div></div>
+    <div class="acc-grid">
+      <div class="acc-card">
         <h3>Thomson Reuters</h3>
         <ul>
           <li>54 product decisions in a single year (target: 40)</li>
@@ -270,10 +369,9 @@
           <li>Onboarding reduced from 55 to 14 days</li>
           <li>$6M+ projected revenue impact over 5 years</li>
           <li>Won 2 company-wide AI Hackathons (2023)</li>
-          <li>Top 5% Learner at Thomson Reuters (H1 2024)</li>
         </ul>
       </div>
-      <div class="skill-card">
+      <div class="acc-card">
         <h3>HSBC Bank</h3>
         <ul>
           <li>Lending framework replicated globally across HSBC markets</li>
@@ -283,14 +381,14 @@
           <li>Hackathon Winner (2019)</li>
         </ul>
       </div>
-      <div class="skill-card">
+      <div class="acc-card">
         <h3>Scienaptic AI</h3>
         <ul>
           <li>$20M USD revenue leakage prevented</li>
           <li>Led 8-person data science team</li>
         </ul>
       </div>
-      <div class="skill-card">
+      <div class="acc-card">
         <h3>Max Life Insurance</h3>
         <ul>
           <li>87% YoY e-commerce growth</li>
@@ -303,27 +401,27 @@
   </section>
 
   <section id="interests">
-    <h2>Interests</h2>
+    <div class="section-header"><h2>Interests</h2><div class="line"></div></div>
     <div class="interests-grid">
       <div class="interest-card">
-        <div class="icon">🏋️</div>
+        <span class="icon">🏋️</span>
         <h3>Functional Fitness</h3>
-        <p>Training 3–4 days a week keeps me sharp. A strong body fuels a sharp mind — I've found the discipline transfers directly into how I approach complex problems.</p>
+        <p>Training 3–4 days a week keeps me sharp. A strong body fuels a sharp mind — discipline that transfers directly into how I approach complex problems.</p>
       </div>
       <div class="interest-card">
-        <div class="icon">🚴</div>
+        <span class="icon">🚴</span>
         <h3>Cycling & Trails</h3>
-        <p>Beginner cyclist with a growing addiction to trail rides. There's something clarifying about a long ride through nature — the best thinking happens away from screens.</p>
+        <p>Beginner cyclist with a growing addiction to trail rides. The best thinking happens away from screens.</p>
       </div>
       <div class="interest-card">
-        <div class="icon">🏏</div>
+        <span class="icon">🏏</span>
         <h3>Cricket</h3>
-        <p>A lifelong passion. Cricket taught me patience, strategy, and the value of playing the long game — lessons that translate surprisingly well into data leadership.</p>
+        <p>A lifelong passion. Cricket taught me patience, strategy, and the value of playing the long game.</p>
       </div>
       <div class="interest-card">
-        <div class="icon">👨‍👧‍👧</div>
+        <span class="icon">👨‍👧‍👧</span>
         <h3>Raising Curious Kids</h3>
-        <p>Father of two daughters. Deeply invested in nurturing a love of learning at home — from logic puzzles and math to exploring the world around them.</p>
+        <p>Father of two daughters. Deeply invested in nurturing a love of learning — from logic puzzles and math to exploring the world around them.</p>
       </div>
     </div>
   </section>
@@ -331,8 +429,23 @@
 </main>
 
 <footer>
+  <div class="footer-links">
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills</a>
+    <a href="#accomplishments">Accomplishments</a>
+    <a href="mailto:khurana.ashish@gmail.com">Contact</a>
+  </div>
   <p>© 2026 Ashish Khurana · Toronto, Canada · <a href="mailto:khurana.ashish@gmail.com">khurana.ashish@gmail.com</a> · <a href="https://www.linkedin.com/in/ashishkhurana01/" target="_blank">LinkedIn</a></p>
 </footer>
+
+<script>
+  const sections = document.querySelectorAll('section');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.1 });
+  sections.forEach(s => observer.observe(s));
+</script>
 
 </body>
 </html>
